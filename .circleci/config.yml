@@ -1,0 +1,34 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    working_directory: /home/circleci/userland
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore node_modules
+          keys:
+            - node_modules-{{ .Environment.CACHE_BUSTER }}-{{ checksum "package-lock.json" }}
+            - node_modules-{{ .Environment.CACHE_BUSTER }}-
+      - run:
+          name: Install dependencies, fail if package-lock.json is outdated
+          command: npm install
+      - save_cache:
+          name: Store node_modules
+          key: node_modules-{{ .Environment.CACHE_BUSTER }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Lint files
+          command: npm run lint
+      - run:
+          name: Unit tests
+          command: npm run testUnit
+      - run:
+          name: Integration tests
+          command: npm run testIntegration
+      - run:
+          name: Coverage
+          command: npm run coverage

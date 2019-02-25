@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/test/**/*.js"],
+      "plugins": ["mocha"],
+      "rules": {
+        "prettier/prettier": "error",
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+      },
+      "env": {
+        "mocha": true
+      }
+    }
+  ]
+}

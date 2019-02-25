@@ -1,0 +1,10 @@
+/**/.DS_Store
+.vscode
+
+/**/node_modules/**/*
+**/build/**/*
+**/coverage/**/*
+**/.nyc_output/**/*
+
+**/dev.sqlite3
+.env
