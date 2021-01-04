@@ -1,6 +1,6 @@
 ## Deprecation notice
 
-As of 1st January 2021 this project will be formally deprecated by Digital Catapult. See [#2](https://github.com/digicatapult/userland-core/issues/2) for details.
+As of 1st January 2021 this project was formally deprecated by Digital Catapult. See [#2](https://github.com/digicatapult/userland-core/issues/2) for details.
 
 # Userland-Core
 
